@@ -9,7 +9,7 @@ class HomepageController extends Controller
 {
     public function index() {
         $trains = Train::all();
-        dd($trains);
-        return view('home');
+        // dd($trains);
+        return view('home', compact('trains'));
     }
 }
