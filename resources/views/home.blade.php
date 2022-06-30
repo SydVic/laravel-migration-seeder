@@ -10,9 +10,10 @@
 <body>
   @foreach ($trains as $train)
       <div class="train-info">
-        <h3>{{ $train->giorno_partenza}}</h3>
-        <h4>{{ $train->stazione_partenza}}</h4>
-        <h4>{{ $train->stazione_arrivo}}</h4>
+        <h3>{{ $train->departure_date}}</h3>
+        <h4>{{ $train->departure_station}} {{ $train->departure_time}}</h4>
+        <h4>{{ $train->arrival_station}} {{ $train->arrival_time}}</h4>
+        <p>{{ $train->train_code}}</p>
       </div>
   @endforeach
 </body>

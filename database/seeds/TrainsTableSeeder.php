@@ -13,13 +13,6 @@ class TrainsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $stations = [
-            'Roma',
-            'Milano',
-            'Napoli',
-            'Bari',
-            'Venezia',
-        ];
 
         $company = [
             'Italo',
@@ -30,16 +23,16 @@ class TrainsTableSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++) {
             $train = new Train();
-            $train->azienda = $company[rand(0, count($company) - 1)];
-            $train->stazione_partenza = $stations[rand(0, count($stations) - 1)];
-            $train->stazione_arrivo = $stations[rand(0, count($stations) - 1)];
-            $train->giorno_partenza = $faker->date('Y-m-d');
-            $train->orario_partenza = $faker->time('H:i');
-            $train->orario_arrivo = $faker->time('H:i');
-            $train->codice_treno = $faker->bothify('??-####');
-            $train->numero_carrozze = $faker->randomDigitNot(0);
-            $train->in_orario = $faker->boolean();
-            $train->cancellato = $faker->boolean();
+            $train->company = $company[rand(0, count($company) - 1)];
+            $train->departure_station = $faker->state();
+            $train->arrival_station = $faker->state();
+            $train->departure_date = $faker->date('Y-m-d');
+            $train->departure_time = $faker->time('H:i');
+            $train->arrival_time = $faker->time('H:i');
+            $train->train_code = $faker->bothify('??-####');
+            $train->carriages_number = $faker->randomDigitNot(0);
+            $train->in_time = $faker->boolean();
+            $train->cancelled = $faker->boolean();
 
             $train->save();
         }
